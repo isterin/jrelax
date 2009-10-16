@@ -66,12 +66,4 @@ public class JsonUtils {
     return argMap;
   }
 
-  public static void main(String[] args) throws IOException {
-    String jsonString = "{\"total_rows\":1,\"offset\":0,\"rows\":[\n" +
-        "{\"id\":\"ilyas_doc\",\"key\":null,\"value\":1}\n" +
-        "]}";
-    JsonNode node = mapper.readValue(jsonString, JsonNode.class);
-    System.err.println("NODE: " + node.toString());
-  }
-
 }

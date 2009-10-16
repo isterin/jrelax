@@ -40,7 +40,6 @@ import java.util.List;
  * @author Ilya Sterin
  * @version 1.0
  */
-@Test
 public class DefaultResourceManagerTest {
 
   private ResourceManager resourceMgr;
