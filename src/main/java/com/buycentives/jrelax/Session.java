@@ -64,8 +64,12 @@ public class Session {
     try {
       ClientResource resource = new ClientResource(fullUrlFor(uri));
       resource.get();
-      T obj = jsonMapper.readValue(resource.getResponseEntity().getText(), jsonResultType);
-      return new CouchResponse<T>(resource.getStatus(), obj);
+      if (resource.getStatus().isSuccess()) {
+        System.err.println("Response entity: " + resource.getStatus());
+        T obj = jsonMapper.readValue(resource.getResponseEntity().getText(), jsonResultType);
+        return new CouchResponse<T>(resource.getStatus(), obj);
+      }
+      return new CouchResponse<T>(resource.getStatus());
     }
     catch (Exception e) {
       throw new RuntimeException("Unable to retrieve resource (" + fullUrlFor(uri) + ")", e);
@@ -83,10 +87,13 @@ public class Session {
       else {
         resource.post(null);
       }
-      String responseBody = resource.getResponseEntity().getText();
-      System.err.println("RESPONSE: " + responseBody);
-      return new CouchResponse<T>(resource.getStatus(),
-          jsonMapper.readValue(responseBody, jsonResultType));
+      if (resource.getStatus().isSuccess()) {
+        String responseBody = resource.getResponseEntity().getText();
+        System.err.println("RESPONSE: " + responseBody);
+        return new CouchResponse<T>(resource.getStatus(),
+            jsonMapper.readValue(responseBody, jsonResultType));
+      }
+      return new CouchResponse<T>(resource.getStatus()); 
     }
     catch (Exception e) {
       throw new RuntimeException("Unable to post resource (" + fullUrlFor(uri) + ")", e);
