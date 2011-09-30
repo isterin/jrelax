@@ -4,7 +4,7 @@
   <groupId>com.buycentives</groupId>
   <artifactId>jrelax</artifactId>
   <packaging>jar</packaging>
-  <version>0.1</version>
+  <version>1.0-SNAPSHOT</version>
   <name>jrelax</name>
   <url>http://maven.apache.org</url>
 

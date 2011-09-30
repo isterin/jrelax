@@ -4,6 +4,8 @@ Also, the API was build from real patterns which were extracted from real use ca
 
 In the near future I'll set up maven publishing, sorry for now, the releases either have to be downloaded from the downloads section and/or built from source.
 
+I'm currently building a scala DSL around the API, which should be available soon.  Clojure DSL will follow.
+
 Enjoy.
 
 
