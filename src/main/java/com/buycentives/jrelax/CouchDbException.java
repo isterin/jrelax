@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2007, Ilya Sterin
+Copyright (c) 2011, Ilya Sterin
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification,
